@@ -11,6 +11,33 @@
         <h1>Sales Page</h1>
         <p>Welcome to the Sales Page! This is where you can track sales and manage records.</p>
         <p><a href="index.html">Back to Dashboard</a></p>
+        <nav>
+            <ul>
+                <li><a href="customer.html">Customer Page</a></li>
+                <li><a href="client.html">Client Page</a></li>
+                <li><a href="sales.html">Sales Page</a></li>
+                <li><a href="logout.html" id="logout" style="color: red;">Logout</a></li>
+            </ul>
+        </nav>
     </div>
+
+    <script>
+        // Check if the user is logged in when the page loads
+        window.onload = function() {
+            const isLoggedIn = localStorage.getItem("loggedIn");
+            if (!isLoggedIn || isLoggedIn !== "true") {
+                // If the user is not logged in, redirect to the login page
+                window.location.href = "login.html";
+            }
+        };
+
+        // Logout functionality
+        document.getElementById("logout").onclick = function() {
+            // Remove the logged-in status from localStorage
+            localStorage.removeItem("loggedIn");
+            // Redirect to the login page
+            window.location.href = "login.html";
+        };
+    </script>
 </body>
 </html>
